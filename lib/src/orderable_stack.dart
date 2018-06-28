@@ -86,17 +86,11 @@ class _OrderableStackState<T> extends State<OrderableStack<T>> {
   }
 
   @override
-  Widget build(BuildContext context) => new Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          new Center(
-              child: new OrderableContainer<T>(
+  Widget build(BuildContext context) => new OrderableContainer<T>(
                   direction: widget.direction,
                   uiItems: _updateZIndexes(_buildOrderableWidgets()),
                   itemSize: widget.itemSize,
-                  margin: kMargin))
-        ],
-      );
+                  margin: kMargin);
 
   List<OrderableWidget<T>> _buildOrderableWidgets() => orderableItems
       .map((Orderable<T> l) => new OrderableWidget(
